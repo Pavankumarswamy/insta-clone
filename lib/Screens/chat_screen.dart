@@ -25,7 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final userId = _auth.currentUser!.uid;
     return userId.compareTo(widget.receiverId) < 0
         ? '${userId}_${widget.receiverId}'
-        : '${widget.receiverId}_$userId';
+        : '${widget.receiverId}_${userId}';
   }
 
   Future<void> _sendMessage() async {
@@ -72,12 +72,22 @@ class _ChatScreenState extends State<ChatScreen> {
                     final message = messageList[index];
                     final isMe = message['senderId'] == _auth.currentUser!.uid;
                     return ListTile(
-                      title: Text(message['text']),
+                      title: Align(
+                        alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            color: isMe ? Colors.blue[100] : Colors.grey[200],
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Text(message['text']),
+                        ),
+                      ),
                       subtitle: Text(
                         DateTime.fromMillisecondsSinceEpoch(message['timestamp'])
                             .toString(),
+                        textAlign: isMe ? TextAlign.right : TextAlign.left,
                       ),
-                      trailing: isMe ? const Icon(Icons.check) : null,
                     );
                   },
                 );

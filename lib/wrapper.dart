@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myapp/Auth/email_verify_screen.dart';
-import 'package:myapp/Auth/login_screen.dart';
-import 'package:myapp/screens/home_screen.dart';
+import 'screens/home_screen.dart';
+import 'auth/login_screen.dart';
 
 class Wrapper extends StatelessWidget {
   const Wrapper({super.key});
@@ -16,12 +15,7 @@ class Wrapper extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasData) {
-          final user = snapshot.data!;
-          if (user.emailVerified) {
-            return const HomeScreen();
-          } else {
-            return const EmailVerifyScreen();
-          }
+          return const HomeScreen();
         }
         return const LoginScreen();
       },

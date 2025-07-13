@@ -13,7 +13,6 @@ class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _nameController = TextEditingController();
-  final _numberController = TextEditingController();
   final _profileUrlController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   final _database = FirebaseDatabase.instance.ref();
@@ -29,11 +28,9 @@ class _SignupScreenState extends State<SignupScreen> {
       if (user != null) {
         await _database.child('users').child(user.uid).set({
           'name': _nameController.text.trim(),
-          'number': _numberController.text.trim(),
           'profileUrl': _profileUrlController.text.trim(),
           'email': _emailController.text.trim(),
         });
-        await user.sendEmailVerification();
       }
     } catch (e) {
       setState(() {
@@ -55,11 +52,6 @@ class _SignupScreenState extends State<SignupScreen> {
               TextField(
                 controller: _nameController,
                 decoration: const InputDecoration(labelText: 'Name'),
-              ),
-              TextField(
-                controller: _numberController,
-                decoration: const InputDecoration(labelText: 'Phone Number'),
-                keyboardType: TextInputType.phone,
               ),
               TextField(
                 controller: _profileUrlController,

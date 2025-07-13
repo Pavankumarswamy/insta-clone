@@ -6,14 +6,18 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(
     options: FirebaseOptions(
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
-      //firebase options for your project
+     
+
+#firebase options
+#firebase options
+#firebase options
+#firebase options
+#firebase options
+#firebase options
+
+
+
+
     ),
   );
   print("Firebase initialized successfully");
@@ -26,8 +30,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WhatsApp Clone',
-      theme: ThemeData(primarySwatch: Colors.teal, useMaterial3: true),
+      title: 'Instagram Clone',
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
       home: const SplashScreen(),
     );
   }

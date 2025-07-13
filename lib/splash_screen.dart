@@ -25,18 +25,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.chat, size: 100, color: Colors.white),
+            Icon(Icons.camera_alt, size: 100, color: Colors.black),
             SizedBox(height: 20),
             Text(
-              'WhatsApp Clone',
+              'Instagram Clone',
               style: TextStyle(
                 fontSize: 24,
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
